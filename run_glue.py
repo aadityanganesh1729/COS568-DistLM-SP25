@@ -132,7 +132,7 @@ def train(args, train_dataset, model, tokenizer):
             else:
                 ##################################################
                 # TODO(cos568): perform backward pass here (expect one line of code)
-              loss.backward()
+                loss.backward()
 
                 
                 ##################################################
@@ -142,7 +142,7 @@ def train(args, train_dataset, model, tokenizer):
             if (step + 1) % args.gradient_accumulation_steps == 0:
                 ##################################################
                 # TODO(cos568): perform a single optimization step (parameter update) by invoking the optimizer (expect one line of code)
-            optimizer.step()
+                optimizer.step()
 
                 
                 ##################################################
