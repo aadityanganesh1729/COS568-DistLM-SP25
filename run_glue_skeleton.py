@@ -132,7 +132,6 @@ def train(args, train_dataset, model, tokenizer):
             else:
                 ##################################################
                 # TODO(cos568): perform backward pass here (expect one line of code)
-              loss.backward()
 
                 
                 ##################################################
@@ -142,7 +141,7 @@ def train(args, train_dataset, model, tokenizer):
             if (step + 1) % args.gradient_accumulation_steps == 0:
                 ##################################################
                 # TODO(cos568): perform a single optimization step (parameter update) by invoking the optimizer (expect one line of code)
-              optimizer.step()
+  
                 
                 ##################################################
                 scheduler.step() # Update learning rate schedule
@@ -160,7 +159,7 @@ def train(args, train_dataset, model, tokenizer):
         # TODO(cos568): call evaluate() here to get the model performance after every epoch. (expect one line of code)
         
         ##################################################
-        evaluate(args, model, tokenizer)
+        
 
     return global_step, tr_loss / global_step
 
@@ -394,7 +393,6 @@ def main():
     # If you pass in args.model_name_or_path (e.g. "bert-base-cased"), the model weights file will be downloaded from HuggingFace. (expect one line of code)
 
     ##################################################
-    model = model_class.from_pretrained(args.model_name_or_path, config=config)
 
     if args.local_rank == 0:
         torch.distributed.barrier()  # Make sure only the first process in distributed training will download model & vocab
